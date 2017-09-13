@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  sampleapp.web:
+    image: sampleapp.web
+    build:
+      context: ./SampleApp.Web
+      dockerfile: Dockerfile
+
+  sampleapp.service1:
+    image: sampleapp.service1
+    build:
+      context: ./SampleApp.Service1
+      dockerfile: Dockerfile

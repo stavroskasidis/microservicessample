@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  sampleapp.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "9000:80"
+
+  sampleapp.service1:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
