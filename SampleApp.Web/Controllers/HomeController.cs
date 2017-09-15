@@ -15,17 +15,29 @@ namespace SampleApp.Web.Controllers
     public class HomeController : Controller
     {
 
+#if DEBUG
         const string Service1URL = "http://sampleapp.service1/api/customers";
+        const string Service2URL = "http://sampleapp.service2/api/suppliers";
+#else 
+        const string Service1URL = "http://sampleapp.service1/api/customers";
+        const string Service2URL = "http://sampleapp.service2/api/suppliers";
+#endif
 
         public async Task<IActionResult> Index()
         {
+            var model = new HomeViewModel();
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.GetAsync(Service1URL);
                 var customersJson = await response.Content.ReadAsStringAsync();
+                model.Customers= JsonConvert.DeserializeObject<Customer[]>(customersJson);
 
-                var customers = JsonConvert.DeserializeObject<Customer[]>(customersJson);
-                return View(customers);
+
+                response = await httpClient.GetAsync(Service2URL);
+                var suppliersJson = await response.Content.ReadAsStringAsync();
+                model.Suppliers = JsonConvert.DeserializeObject<Supplier[]>(customersJson);
+
+                return View(model);
             }
         }
         

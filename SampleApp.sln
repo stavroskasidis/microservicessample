@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Web", "SampleApp.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AE9DAA18-F54D-4252-BA3A-B80DC39822D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Service1", "SampleApp.Service1\SampleApp.Service1.csproj", "{CDC805B5-AC16-4DF6-9FD0-33FDCA847CAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Service1", "SampleApp.Service1\SampleApp.Service1.csproj", "{CDC805B5-AC16-4DF6-9FD0-33FDCA847CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Model", "SampleApp.Model\SampleApp.Model.csproj", "{0DB2E48E-4D52-4718-8704-B1D5EF2EEE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Model", "SampleApp.Model\SampleApp.Model.csproj", "{0DB2E48E-4D52-4718-8704-B1D5EF2EEE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Service2", "SampleApp.Service2\SampleApp.Service2.csproj", "{4EA06498-E36E-4BF9-AE26-2FC7FC85D082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0DB2E48E-4D52-4718-8704-B1D5EF2EEE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DB2E48E-4D52-4718-8704-B1D5EF2EEE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DB2E48E-4D52-4718-8704-B1D5EF2EEE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA06498-E36E-4BF9-AE26-2FC7FC85D082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA06498-E36E-4BF9-AE26-2FC7FC85D082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA06498-E36E-4BF9-AE26-2FC7FC85D082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA06498-E36E-4BF9-AE26-2FC7FC85D082}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

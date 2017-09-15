@@ -12,3 +12,9 @@ services:
     build:
       context: ./SampleApp.Service1
       dockerfile: Dockerfile
+
+  sampleapp.service2:
+    image: sampleapp.service2
+    build:
+      context: ./SampleApp.Service2
+      dockerfile: Dockerfile

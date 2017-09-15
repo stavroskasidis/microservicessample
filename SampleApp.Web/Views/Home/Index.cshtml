@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model Customer[]
+@model HomeViewModel
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
@@ -74,11 +74,28 @@
             <th>Description</th>
         </tr>
     </thead>
-    @foreach (var customer in Model)
+    @foreach (var customer in Model.Customers)
     {
         <tr>
             <td>@customer.Code</td>
             <td>@customer.Name</td>
+        </tr>
+    }
+</table>
+
+<h2> Suppliers </h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    @foreach (var supplier in Model.Suppliers)
+    {
+        <tr>
+            <td>@supplier.Code</td>
+            <td>@supplier.Name</td>
         </tr>
     }
 </table>
