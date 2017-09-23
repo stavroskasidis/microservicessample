@@ -11,9 +11,9 @@ services:
   service1:
     image: microservicessample.azurecr.io/sampleapp.service1
     deploy:
-      replicas: 1
+      replicas: 3
         
   service2:
     image: microservicessample.azurecr.io/sampleapp.service2
     deploy:
-      replicas: 1
+      replicas: 3
