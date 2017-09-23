@@ -12,9 +12,12 @@ namespace SampleApp.Service2.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<Supplier> Get()
+        public SupplierGetResponse Get()
         {
-            return new Supplier[] {
+            return new SupplierGetResponse
+            {
+                MachineName = Environment.MachineName,
+                Suppliers = new Supplier[] {
                 new Supplier
                 {
                     Code = "001",
@@ -25,6 +28,7 @@ namespace SampleApp.Service2.Controllers
                     Code = "002",
                     Name = "Theodoris"
                 }
+            }
             };
         }
     }

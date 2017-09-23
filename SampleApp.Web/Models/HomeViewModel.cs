@@ -8,7 +8,9 @@ namespace SampleApp.Web.Models
 {
     public class HomeViewModel
     {
-        public Customer[] Customers;
-        public Supplier[] Suppliers;
+        public CustomerGetResponse CustomersResponse { get; set; } = new CustomerGetResponse();
+        public SupplierGetResponse SuppliersResponse { get; set; } = new SupplierGetResponse();
+        public string Error { get; set; }
+        
     }
 }

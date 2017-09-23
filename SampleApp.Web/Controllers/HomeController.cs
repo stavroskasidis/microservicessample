@@ -26,19 +26,27 @@ namespace SampleApp.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var model = new HomeViewModel();
-            using (var httpClient = new HttpClient())
+            try
             {
-                var response = await httpClient.GetAsync(Service1URL);
-                var customersJson = await response.Content.ReadAsStringAsync();
-                model.Customers= JsonConvert.DeserializeObject<Customer[]>(customersJson);
+                using (var httpClient = new HttpClient())
+                {
+                    var response = await httpClient.GetAsync(Service1URL);
+                    var customersJson = await response.Content.ReadAsStringAsync();
+                    model.CustomersResponse = JsonConvert.DeserializeObject<CustomerGetResponse>(customersJson);
 
+                    response = await httpClient.GetAsync(Service2URL);
+                    var suppliersJson = await response.Content.ReadAsStringAsync();
+                    model.SuppliersResponse = JsonConvert.DeserializeObject<SupplierGetResponse>(suppliersJson);
 
-                response = await httpClient.GetAsync(Service2URL);
-                var suppliersJson = await response.Content.ReadAsStringAsync();
-                model.Suppliers = JsonConvert.DeserializeObject<Supplier[]>(customersJson);
-
-                return View(model);
+                   
+                }
             }
+            catch(Exception ex)
+            {
+                model.Error = ex.ToString();
+            }
+
+            return View(model);
         }
         
     }

@@ -12,18 +12,22 @@ namespace SampleApp.Service1.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public CustomerGetResponse Get()
         {
-            return new Customer[] {
-                new Customer
-                {
-                    Code = "001",
-                    Name = "Takis"
-                },
-                new Customer
-                {
-                    Code = "002",
-                    Name = "Mpampis"
+            return new CustomerGetResponse
+            {
+                MachineName = Environment.MachineName,
+                Customers = new Customer[] {
+                    new Customer
+                    {
+                        Code = "001",
+                        Name = "Takis"
+                    },
+                    new Customer
+                    {
+                        Code = "002",
+                        Name = "Mpampis"
+                    }
                 }
             };
         }
