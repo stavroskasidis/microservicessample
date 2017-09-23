@@ -2,22 +2,18 @@ version: '3.2'
 
 services:
   web:
-    image: localhost:5000/sampleapp.web
+    image: microservicessample.azurecr.io/sampleapp.web
     deploy:
-      replicas: 3
+      replicas: 1
     ports:
-        - "8080:80"
+        - "80:80"
 
   service1:
-    image: localhost:5000/sampleapp.service1
+    image: microservicessample.azurecr.io/sampleapp.service1
     deploy:
-      replicas: 3
-    ports:
-        - "80"
-
+      replicas: 1
+        
   service2:
-    image: localhost:5000/sampleapp.service2
+    image: microservicessample.azurecr.io/sampleapp.service2
     deploy:
-      replicas: 3
-    ports:
-        - "80"
+      replicas: 1

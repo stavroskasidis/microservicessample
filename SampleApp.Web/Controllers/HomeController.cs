@@ -15,13 +15,8 @@ namespace SampleApp.Web.Controllers
     public class HomeController : Controller
     {
 
-#if DEBUG
-        const string Service1URL = "http://sampleapp.service1/api/customers";
-        const string Service2URL = "http://sampleapp.service2/api/suppliers";
-#else 
-        const string Service1URL = "http://sampleapp.service1/api/customers";
-        const string Service2URL = "http://sampleapp.service2/api/suppliers";
-#endif
+        const string Service1URL = "http://service1/api/customers";
+        const string Service2URL = "http://service2/api/suppliers";
 
         public async Task<IActionResult> Index()
         {

@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-  sampleapp.web:
+  web:
     image: sampleapp.web
     build:
       context: ./SampleApp.Web
       dockerfile: Dockerfile
 
-  sampleapp.service1:
+  service1:
     image: sampleapp.service1
     build:
       context: ./SampleApp.Service1
       dockerfile: Dockerfile
 
-  sampleapp.service2:
+  service2:
     image: sampleapp.service2
     build:
       context: ./SampleApp.Service2
