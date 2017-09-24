@@ -1,0 +1,137 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    name: web
+    app: demo
+spec:
+  strategy:
+    type: Recreate
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: web
+        app: demo
+    spec:
+      containers:
+      - name: web
+        image: microservicessample.azurecr.io/sampleapp.web
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+      - name: regsecret
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: service1
+  labels:
+    name: service1
+    app: demo
+spec:
+  strategy:
+    type: Recreate
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: service1
+        app: demo
+    spec:
+      containers:
+      - name: service1
+        image: microservicessample.azurecr.io/sampleapp.service1
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+      - name: regsecret
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: service2
+  labels:
+    name: service2
+    app: demo
+spec:
+  strategy:
+    type: Recreate
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: service2
+        app: demo
+    spec:
+      containers:
+      - name: service2
+        image: microservicessample.azurecr.io/sampleapp.service2
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+      - name: regsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    name: web
+    app: demo
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    name: web
+    app: demo
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+  labels:
+    name: service1
+    app: demo
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    name: service1
+    app: demo
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service2
+  labels:
+    name: service2
+    app: demo
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    name: service2
+    app: demo
+  type: NodePort
